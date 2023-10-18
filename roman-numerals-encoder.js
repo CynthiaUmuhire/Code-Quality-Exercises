@@ -22,17 +22,18 @@ const romanNumeral = {
 function romanNumeralEncoder(num) {
     const romanKeys = Object.keys(romanNumeral)
         .map(Number)
-        .sort((a, b) => b - a); 
+        .sort((a, b) => b - a);
 
-    let result = '';
-    let remaining = num;
-    for (const key of romanKeys) {
-        while (remaining >= key) {
-            result += romanNumeral[key];
-            remaining -= key;
+    let romanNumber = '';
+    let remainder = num;
+    romanKeys.forEach((key) => {
+        while (remainder >= key) {
+            romanNumber += romanNumeral[key];
+            remainder -= key;
         }
-    }
+    })
 
-    return result;
+    return romanNumber;
 }
 
+console.log(romanNumeralEncoder(124));
