@@ -9,20 +9,19 @@ The returned format must be correct in order to complete this challenge.
 Don't forget the space after the closing parentheses!
 */
 
-function createPhoneNumber(numbers){
-   if (numbers.length !== 10) return ("Invalid phone number!")
+function createPhoneNumber(numbers) {
+    if (numbers.length !== 10) return ("Invalid phone number!")
     let phoneNumber = '';
-    for (let i = 0; i < numbers.length; i++) {
-        if (i === 0) {
-            phoneNumber += '(';
-        } else if (i === 3) {
-            phoneNumber += ') ';
-        } else if (i === 6) {
-            phoneNumber += '-';
-        }
-        phoneNumber += numbers[i];
-    }
+    numbers.forEach((number,i) => {
+        if (i === 0) phoneNumber += '(';
+
+        if (i === 3) phoneNumber += ') ';
+
+        if (i === 6)phoneNumber += '-';
+
+        phoneNumber += number;
+    })
     return phoneNumber;
 }
 
-// console.log(createPhoneNumber([1, 1, 1, 1, 1, 1, 1,,22, 1, 1, 1]))
+console.log(createPhoneNumber([1, 1, 1, 1, 1, 1, 1, 1, 1, 1]))
