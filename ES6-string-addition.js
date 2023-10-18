@@ -10,9 +10,6 @@ ES6 has introduced another way of joining strings. Your task is to find out what
 If one of the arguments is a number your code must coerce it into being a string.
 
 */
-function joinStrings(string1, string2) {
-    if (typeof string1 !== "number") string1 === String(string1)
-    if (typeof string2 !== "number") string2 === String(string2)
-    return `${string1} ${string2}`
-}
+const joinStrings = (string1, string2) => `${string1} ${string2}`;
+
 
