@@ -32,25 +32,21 @@ roundRobin([10,20,1], 5, 0) == 16
 
 */
 function roundRobin(jobs, slice, index) {
-   let count = 0;
+   let result = 0
    while (jobs[index] > 0) {
       for (let i = 0; i < jobs.length; i++) {
-         if (jobs[i] > 0) {
-            let time = Math.min(slice, jobs[i]);
-            jobs[i] -= time;
-            count += time;
-            if (i === index && jobs[i] === 0) {
-               break;
-            }
+         if (jobs[i] >= 0) {
+            result += jobs[i] <= slice ? jobs[i] : slice
+            jobs[i] = jobs[i] - slice
          }
+         if (jobs[index] <= 0) break;
       }
    }
-   return count;
+   return result
 }
 
 
 // console.log(roundRobin([10, 20, 1], 5, 0));
-
 
 console.log(roundRobin([10], 4, 0), 10);
 // console.log(roundRobin(roundRobin([10, 20, 1], 5, 0)));
