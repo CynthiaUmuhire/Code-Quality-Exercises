@@ -13,6 +13,7 @@ function findNestingLevels(array) {
     return count + 1;
 }
 function flattenArray(array) {
+    if (!Array.isArray(array)) return "The input is not an array"
     const nestingLevel = findNestingLevels(array)
     return array.flat(nestingLevel)
 }
